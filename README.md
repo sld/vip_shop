@@ -1,8 +1,8 @@
-== README
+# README
 
 Online shop for VIPs.
 
-h1. Requirements
+## Requirements
 
 Application tested on:
 
