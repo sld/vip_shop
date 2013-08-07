@@ -7,5 +7,6 @@ class CreateBuyings < ActiveRecord::Migration
     end
 
     add_index :buyings, :user_id
+    add_index :buyings, :created_at
   end
 end
