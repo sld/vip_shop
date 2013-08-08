@@ -5,5 +5,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :rememberable, :trackable, :validatable
 
   has_one :cart
-  has_many :buyings
+  has_many :buyings, :dependent => :destroy
 end

@@ -23,5 +23,5 @@
       %tr
         %td= product.name
         %td= product.price
-        %td= link_to "Add to cart", '#'
+        %td= current_user.cart.products.include?(product) ? "In cart" : link_to( "Add to cart", '#' )
 
