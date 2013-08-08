@@ -1,0 +1,20 @@
+%h1 Cart
+
+- if @cart_products.present?
+  %table{:class => 'table table-bordered'}
+    %thead
+      %tr
+        %th Name
+        %th Quantity
+        %th Result price
+    %tbody
+    - @cart_products.each do |cart_product|      
+      %tr
+        %td= cart_product.product.name
+        %td= cart_product.quantity
+        %td= '#'
+- else
+  %h2 Cart is empty.        
+
+
+  

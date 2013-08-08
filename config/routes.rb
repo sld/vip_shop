@@ -5,6 +5,7 @@ VipShop::Application.routes.draw do
 
   get "balances/increase" => "balances#increase"
   get "carts/add/:product_id" => "carts#add", :as => :carts_add
+  get "carts/index" => "carts#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

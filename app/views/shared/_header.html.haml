@@ -1,0 +1,19 @@
+- if current_user
+  .row
+    .span3
+      = link_to "Sign out", destroy_user_session_path, :method => :delete
+    .span2
+      = link_to "Buyings", '#'
+    .span4    
+      %span
+        #balance= render :partial => 'shared/user_balance'
+        = link_to "Add to balance 1000", balances_increase_path, :remote => true
+    .span3
+      = link_to "In Cart now", carts_index_path 
+      %b= pluralize(current_user.cart.products.count, 'product', 'products')      
+- else
+  .row
+    .span3
+      = link_to "Sign in", new_user_session_path
+    .span3
+      = link_to "Buyings", '#'
