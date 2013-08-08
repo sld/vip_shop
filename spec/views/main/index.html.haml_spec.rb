@@ -1,8 +1,5 @@
 require 'spec_helper'
 
-describe User do
+describe "main/index.html.haml" do
   pending "add some examples to (or delete) #{__FILE__}"
-
-  it "should add some products into cart" do
-  end
 end

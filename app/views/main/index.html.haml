@@ -1,0 +1,22 @@
+%h1 Online shop for VIPs
+
+= link_to "Sign out", destroy_user_session_path, :method => :delete
+.row
+  .span8
+    Balance
+  .span4
+    Cart
+
+%table{:class => 'table table-bordered'}
+  %thead
+    %tr
+      %th Name
+      %th Price
+      %th Cart
+  %tbody    
+    - @products.each do |product|
+      %tr
+        %td= product.name
+        %td= product.price
+        %td= link_to "Add to cart", '#'
+

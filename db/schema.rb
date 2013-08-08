@@ -11,7 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130807125217) do
+ActiveRecord::Schema.define(version: 20130807181936) do
+
+  create_table "buyings", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "buyings", ["created_at"], name: "index_buyings_on_created_at", using: :btree
+  add_index "buyings", ["user_id"], name: "index_buyings_on_user_id", using: :btree
+
+  create_table "cart_products", force: true do |t|
+    t.integer  "cart_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "cart_products", ["cart_id"], name: "index_cart_products_on_cart_id", using: :btree
+
+  create_table "carts", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "buying_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "carts", ["buying_id"], name: "index_carts_on_buying_id", using: :btree
+
+  create_table "products", force: true do |t|
+    t.integer  "price"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
