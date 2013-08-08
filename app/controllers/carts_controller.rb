@@ -5,4 +5,10 @@ class CartsController < ApplicationController
       redirect_to root_path
     end
   end
+
+
+  def index
+    build_user_cart
+    @cart_products = current_user.cart.cart_products.includes(:product)    
+  end
 end
