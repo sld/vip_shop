@@ -8,7 +8,9 @@
       #balance= render :partial => 'shared/user_balance'
       = link_to "Add to balance 1000", balances_increase_path, :remote => true
   .span4
-    %b Cart
+    In Cart now 
+    %b= pluralize(current_user.cart.products.count, 'product', 'products')
+
 
 %br
 
@@ -23,5 +25,5 @@
       %tr
         %td= product.name
         %td= product.price
-        %td= current_user.cart.products.include?(product) ? "In cart" : link_to( "Add to cart", '#' )
+        %td= current_user.cart.products.include?(product) ? "In cart" : link_to( "Add to cart", carts_add_path(:product_id => product.id) )
 
