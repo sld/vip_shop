@@ -1,5 +1,7 @@
 VipShop::Application.routes.draw do
-  devise_for :users, :only => :sessions
+  devise_for :users, :only => [:sessions]
+
+  root "main#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
