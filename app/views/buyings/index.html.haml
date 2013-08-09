@@ -1,2 +1,21 @@
-%h1 Buyings#index
-%p Find me in app/views/buyings/index.html.haml
+%h1 Buyings
+
+%table{:class => 'table table-bordered'}
+  %thead
+    %tr
+      %th Id
+      %th Bought at
+      %th Email
+      %th Cart
+      %th Total price
+  %tbody
+  - @buyings.each do |buying|      
+    %tr
+      %td= buying.id
+      %td= buying.created_at.strftime("%d-%m-%Y %H:%M")
+      %td= buying.user.email
+      %td
+        - buying.cart.cart_products.each do |cart_product|
+          #{cart_product.product.name} (#{cart_product.quantity})        
+      %td= buying.cart.total_price
+= paginate @buyings            

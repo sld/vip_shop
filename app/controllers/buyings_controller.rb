@@ -3,7 +3,7 @@ class BuyingsController < ApplicationController
 
 
   def index
-    
+    @buyings = Buying.includes( :user, :cart => { :cart_products => :product } ).order('created_at desc').page( params[:page] )
   end
 
 
