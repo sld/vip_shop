@@ -47,6 +47,7 @@ gem 'devise'
 gem 'haml-rails'
 gem 'pg'
 gem 'simple_form', '>= 3.0.0.rc'
+gem 'kaminari'
 
 group :assets do
   gem 'therubyracer', :platform=>:ruby

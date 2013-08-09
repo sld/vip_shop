@@ -5,7 +5,7 @@
     .span1
       = link_to "Products", root_path
     .span1
-      = link_to "Buyings", '#'    
+      = link_to "Buyings", buyings_path   
     .span4    
       %span
         #balance= render :partial => 'shared/user_balance'
@@ -18,4 +18,4 @@
     .span3
       = link_to "Sign in", new_user_session_path
     .span3
-      = link_to "Buyings", '#'
+      = link_to "Buyings", buyings_path 
