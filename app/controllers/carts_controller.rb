@@ -8,8 +8,8 @@ class CartsController < ApplicationController
 
 
   def index
-    build_user_cart
     @cart_products = current_user.cart.cart_products.includes(:product)    
+    @total_price = current_user.cart.total_price
   end
 
 
