@@ -3,7 +3,7 @@ VipShop::Application.routes.draw do
 
   root "main#index"
 
-  get "balances/increase" => "balances#increase"
+  post "balances/increase" => "balances#increase"
 
   scope '/carts' do 
     get "add/:product_id" => "carts#add", :as => :carts_add
@@ -11,6 +11,12 @@ VipShop::Application.routes.draw do
     get "delete_product/:product_id" => "carts#delete_product", :as => :carts_delete_product
     get "increase_quantity/:cart_product_id" => "carts#increase_quantity", :as => :carts_increase_quantity
     get "decrease_quantity/:cart_product_id" => "carts#decrease_quantity", :as => :carts_decrease_quantity
+  end
+
+  resources :buyings, :only => [:index] do 
+    collection do 
+      post 'create_from_cart' 
+    end
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
