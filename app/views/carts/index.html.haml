@@ -7,12 +7,18 @@
         %th Name
         %th Quantity
         %th Result price
+        %th
     %tbody
     - @cart_products.each do |cart_product|      
       %tr
         %td= cart_product.product.name
-        %td= cart_product.quantity
-        %td= '#'
+        %td 
+          = cart_product.quantity
+          = link_to '+', carts_increase_quantity_path( cart_product )
+          = link_to '-', carts_decrease_quantity_path( cart_product ) if cart_product.quantity > 1
+        %td= cart_product.quantity * cart_product.product.price
+        %td= link_to "Delete from cart", carts_delete_product_path( cart_product.product )
+  Total: #{total_price( @cart_products )}
 - else
   %h2 Cart is empty.        
 
