@@ -8,7 +8,7 @@ class CartsController < ApplicationController
 
 
   def index
-    @cart_products = current_user.cart.cart_products.includes(:product)    
+    @cart_products = current_user.cart.cart_products.includes(:product).order('created_at')    
     @total_price = current_user.cart.total_price
   end
 
@@ -30,11 +30,9 @@ class CartsController < ApplicationController
   def decrease_quantity
     cart_product = CartProduct.find(params[:cart_product_id])
     cart_product.quantity -= 1
-    if cart_product.save
-      redirect_to carts_index_url
-    else
-      flash[:notice] = "Error on decrease cart product quantity"
-      render 'index'
+    if !cart_product.save        
+      flash[:notice] = "Error on decrease cart product quantity"      
     end
+    redirect_to carts_index_url
   end
 end
