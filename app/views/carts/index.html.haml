@@ -18,7 +18,9 @@
           = link_to '-', carts_decrease_quantity_path( cart_product ) if cart_product.quantity > 1
         %td= cart_product.quantity * cart_product.product.price
         %td= link_to "Delete from cart", carts_delete_product_path( cart_product.product )
-  Total: #{@total_price}
+  Total: 
+  %strong{:id => 'total-price-val'}= @total_price
+  = link_to "Buy cart", create_from_cart_buyings_path, :method => :post, :remote => true
 - else
   %h2 Cart is empty.        
 
