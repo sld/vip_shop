@@ -1,6 +1,7 @@
 class BalancesController < ApplicationController
   def increase
-    current_user.balance += 1000
+    value = params[:value] || 1000
+    current_user.balance += value.to_i
     current_user.save
 
     respond_to do |format| 
