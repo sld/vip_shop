@@ -2,6 +2,8 @@
 
 Online shop for VIPs.
 
+Available on heroku: http://young-tor-5761.herokuapp.com/
+
 ## App tested on
 
 * Rails 4.0.0
