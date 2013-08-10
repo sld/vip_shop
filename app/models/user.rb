@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
         return true
       end
     else
-      errors.add(:buyings, 'You balance too less for buy cart')
+      errors.add(:buyings, 'Balance too less for buy cart')
       return false
     end
   end
