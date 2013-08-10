@@ -49,6 +49,10 @@ gem 'pg'
 gem 'simple_form', '>= 3.0.0.rc'
 gem 'kaminari'
 
+group :production do 
+  gem 'rails_12factor'
+end
+
 group :assets do
   gem 'therubyracer', :platform=>:ruby
 end
