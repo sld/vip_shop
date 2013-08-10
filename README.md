@@ -2,11 +2,13 @@
 
 Online shop for VIPs.
 
-## Requirements
+## App tested on
 
 * Rails 4.0.0
 
 * Postgresql 9.1.9
+
+* Ruby 2.0.0-p247
 
 
 ## How to run
